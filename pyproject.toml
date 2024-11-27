@@ -1,0 +1,65 @@
+[tool.poetry]
+name = "network-usage-dashboard"
+version = "0.1.0"
+description = "Dashboard for monitoring network usage written in Python and Flask"
+authors = ["FranChesK0"]
+license = "MIT license"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+flask = "^3.1.0"
+
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+flake8-pyproject = "^1.2.3"
+isort = "^5.13.2"
+mypy = "^1.13.0"
+pytest = "^8.3.3"
+
+
+[tool.black]
+line-length = 90
+target-version = ["py312"]
+
+[tool.flake8]
+max-line-length = 90
+count = true
+
+[tool.isort]
+profile = "black"
+py_version = 312
+line_length = 90
+length_sort = true
+multi_line_output = 3
+include_trailing_comma = true
+src_paths = ["network_usage_dashboard", "tests"]
+extend_skip = ["__init__.py"]
+
+[tool.mypy]
+mypy_path = "network_usage_dashboard"
+python_version = "3.12"
+explicit_package_bases = true
+disallow_untyped_defs = true
+disallow_any_unimported = true
+no_implicit_optional = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+show_error_codes = true
+
+[tool.pytest.ini_options]
+pythonpath = ["network_usage_dashboard"]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = ["--import-mode=importlib",]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
