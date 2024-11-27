@@ -1,4 +1,4 @@
-.PHONY: help install shell test lint format check clean pre-commit-install pre-commit run debug
+.PHONY: help install shell test lint format check clean pre-commit-install pre-commit run debug show-routes
 
 # Default target
 .DEFAULT_GOAL := help
@@ -8,15 +8,19 @@ PYTHON = python
 
 help:
 	@echo "Available commands:"
+	@echo "  help               - Display this help message"
 	@echo "  install            - Install project dependencies using Poetry"
 	@echo "  shell              - Open a shell with the virtual environment activated"
 	@echo "  test               - Run tests using pytest"
 	@echo "  lint               - Run code quality checks (flake8, mypy)"
 	@echo "  format             - Format code using black and isort"
-	@echo "  clean              - Remove build artifacts and cache files"
 	@echo "  check              - Run all quality checks (lint + test)"
-	@echo "  pre-commit         - Run pre-commit hooks on all files"
+	@echo "  clean              - Remove build artifacts and cache files"
 	@echo "  pre-commit-install - Install pre-commit hooks"
+	@echo "  pre-commit         - Run pre-commit hooks on all files"
+	@echo "  run                - Run the application"
+	@echo "  debug              - Run the application in debug mode"
+	@echo "  show-routes        - Show all routes in the application"
 
 install:
 	poetry install
